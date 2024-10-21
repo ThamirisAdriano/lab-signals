@@ -1,27 +1,32 @@
-# LabSignals
+# What are signals in Angular?
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
+![image](https://github.com/user-attachments/assets/e25ef7e6-fb2a-4594-95fc-44ff21cdb17e)
 
-## Development server
+**Signals** are a new feature introduced in Angular 16, designed to simplify how we handle state in components. Instead of relying on complex mechanisms like observables or heavy state managers, signals offer a more direct and efficient way to track changes and update the user interface.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+A signal is essentially a "value holder," meaning it stores a piece of data and automatically notifies Angular when that data changes. This means that whenever the value of a signal is updated, the interface will reactively update, without needing any special handling on your part.
 
-## Code scaffolding
+## Practical Example: Creating and Updating a Signal
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Let's create a signal called elementoSelecionado, which will store the selected chemical element by the user. Initially, it will be null since no element is selected. Later, when the user clicks on an item from the list, we update this signal.
 
-## Build
+```tsx
+elementoSelecionado = signal<Elemento | null>(null);
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Whenever the user selects an element, the .set() method is called, updating the state of elementoSelecionado. Here's how simple that is:
 
-## Running unit tests
+```tsx
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+selecionarElemento(elemento: Elemento) {
+  this.elementoSelecionado.set(elemento);
+}
+```
 
-## Running end-to-end tests
+Now, the magic happens: every time the state of elementoSelecionado changes, the interface that depends on that value will automatically update!
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+https://github.com/user-attachments/assets/101f1546-3f9c-4d4b-9b94-3f9d4ec3a259
 
-## Further help
+### Why Are Signals Awesome?
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Signals make life much simpler for Angular developers. If you're working on something where the state changes locally (e.g., selecting an item in a list, toggling a setting), signals are perfect. They are easy to create, update, and Angular does the heavy lifting of re-rendering everything for you. Plus, for those who have felt lost in the world of observables, signals provide a lighter, less complex alternative for handling state and reactivity.
