@@ -4,10 +4,3 @@
     {{ elemento.nome }} ({{ elemento.simbolo }})
   </li>
 </ul>
-
-<div *ngIf="elementoService.obterElementoSelecionado() as elementoSelecionado">
-  <h3>Detalhes do Elemento:</h3>
-  Nome: {{ elementoSelecionado.nome }} <br>
-  Símbolo: {{ elementoSelecionado.simbolo }} <br>
-  Número Atômico: {{ elementoSelecionado.numeroMassa }}
-</div>
