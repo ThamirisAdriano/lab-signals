@@ -2,14 +2,19 @@
   <div>
     <img src="./../assets/Logo - LabSignals.png" alt="" />
   </div>
-
+ 
+ 
   <div>
     <ul>
-      <li><a routerLink="/intro">Lista de elementos Químicos</a></li>
-      <li><a routerLink="/effects">Estados físicos dos elementos</a></li>
+      <li><a routerLink="/intro">Introdução aos Signals</a></li>
+      <li>
+        <a routerLink="/effects">Manipulando estados físicos dos elementos</a>
+      </li>
+      <li><a routerLink="/elements">Interação entre Elementos</a></li>
     </ul>
   </div>
-
+ 
+ 
   <div>
     <img
       src="./../../assets/Banner.png"
@@ -17,6 +22,13 @@
       class="image-container"
     />
   </div>
-</nav>
-
-<router-outlet></router-outlet>
+ 
+ 
+  <div class="element-container">
+    <router-outlet name="list"></router-outlet>
+    <router-outlet name="details"></router-outlet>
+  </div>
+ </nav>
+ 
+ 
+ <router-outlet></router-outlet>
