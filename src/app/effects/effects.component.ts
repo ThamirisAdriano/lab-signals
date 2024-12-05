@@ -7,8 +7,6 @@ interface Elemento {
   pontoFusao: number; 
   pontoEbulicao: number;
  }
- 
-
 @Component({
   selector: 'app-effects',
   templateUrl: './effects.component.html',
