@@ -9,7 +9,6 @@ export interface Elemento {
   numeroNeutrons: number;
   numeroAtomico: number;
 }
-
 @Injectable({
   providedIn: 'root'
 })
@@ -20,7 +19,6 @@ export class ElementoService {
   temperatura = signal<number>(25);
   estadoFisico = signal<string>('');
   private favoritos = signal<Elemento[]>([]);
-
 
   elementos: Elemento[] = [
     { nome: 'Hidrogênio', simbolo: 'H', numeroAtomico: 1, numeroNeutrons: 0, numeroMassa: 1, pontoFusao: -259, pontoEbulicao: -253 },
